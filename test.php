@@ -31,7 +31,28 @@
 
 
 
+// class-16 | Dev-4
+// get_template_directory_uri()
 
+
+
+// class-17 | Dev-5
+// get_header()
+// get_footer()
+// get_sidebar()
+// get_template_part(
+// wp_head()
+// wp_footer()
+// bloginfo()
+
+
+
+// class-18 | Dev-6
+
+
+// class-19 | Dev-7
+// register_nav_menu()
+// wp_nav_menu()
 
 
 
