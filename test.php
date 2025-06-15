@@ -56,4 +56,13 @@
 
 
 
+// class-20 | Dev-8
+// have_posts()
+// the_title()
+// the_content()
+
+
+
+
+
 ?>
