@@ -62,6 +62,16 @@
 // the_content()
 
 
+// class-21 | Dev-9
+// class WP_Query
+// new WP_Query()
+// array(
+//    // "post_type" => "post",
+//    "post_type" => "page",
+//    "post_per_page" => 1,
+//    "author" => 1 // mane author dore data niye asa jabe
+
+// )
 
 
 
