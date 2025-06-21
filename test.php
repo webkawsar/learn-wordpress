@@ -8,6 +8,9 @@
 
 
 
+  // class-14 | Dev-2
+ // restapi>themes>corporate
+ 
  // hook
  // action
  // filter
@@ -19,6 +22,11 @@
  }
 
  add_action('after_setup_theme', 'callbackFunction')
+
+
+
+
+
 
 
 
