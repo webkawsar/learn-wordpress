@@ -24,17 +24,16 @@
  add_action('after_setup_theme', 'callbackFunction')
 
 
+ 
 
 
-
-
-
-
- // class-15 dev-3
+ // class-15 | dev-3
 //  have_posts();
 // the_post()
 // the_title()
 // get_the_title()
+
+// wordpress posts er modde joto posts ase sobgulo tan diye niye asar jonno have_posts() use kora hoy
 
 
 
