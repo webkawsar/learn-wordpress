@@ -39,7 +39,7 @@
 
 
 // class-16 | Dev-4
-// get_template_directory_uri()
+// get_template_directory_uri() diye image/js/css link up kore dekhanu hoyese
 
 
 
