@@ -14,6 +14,14 @@ add_action("after_setup_theme", "callbackFunction");
 
 if( !function_exists('myCustomCSSAndJSS')){
     function myCustomCSSAndJSS() {
+        // Google Fonts
+        wp_enqueue_style(
+            'google_fonts',
+            'https://fonts.googleapis.com/css?family=Poppins:200i,300,300i,400,400i,500,500i,600,600i,700,700i,800,800i,900,900i&display=swap',
+            array(),
+            null
+        );
+        
         // <!-- Bootstrap CSS -->
         wp_enqueue_style('bootstrap', get_template_directory_uri()."/assets/css/bootstrap.min.css");
 
