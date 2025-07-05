@@ -74,6 +74,24 @@ if(!function_exists("my_menu")) {
     }
 }
 
-add_action('init', 'my_menu')
+add_action('init', 'my_menu');
+
+
+
+// Add 'dropdown' class to sub-menu <ul>
+function my_add_dropdown_class($classes) {
+    $classes[] = 'dropdown';
+    return $classes;
+}
+add_filter('nav_menu_submenu_css_class', 'my_add_dropdown_class');
+
+// Add icon to menu items with children
+function my_add_menu_icon($title, $item, $args, $depth) {
+    if (in_array('menu-item-has-children', $item->classes) && $depth === 0) {
+        $title .= ' <i class="icofont-rounded-down"></i>';
+    }
+    return $title;
+}
+add_filter('nav_menu_item_title', 'my_add_menu_icon', 10, 4);
 
 ?>

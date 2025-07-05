@@ -48,13 +48,14 @@
                         <!-- Main Menu -->
                         <div class="main-menu">
                             <nav class="navigation">
-                                <ul class="nav menu">
-                                    <li class="active"><a href="#">Home <i class="icofont-rounded-down"></i></a>
+                                <!-- <ul class="nav menu">
+                                    <li class="active">
+                                        <a href="#">Home <i class="icofont-rounded-down"></i></a>
                                         <ul class="dropdown">
                                             <li><a href="index.html">Home Page 1</a></li>
                                         </ul>
                                     </li>
-                                    <li><a href="#">Doctos </a></li>
+                                    <li><a href="#">Doctors </a></li>
                                     <li><a href="#">Services </a></li>
                                     <li><a href="#">Pages <i class="icofont-rounded-down"></i></a>
                                         <ul class="dropdown">
@@ -67,7 +68,16 @@
                                         </ul>
                                     </li>
                                     <li><a href="contact.html">Contact Us</a></li>
-                                </ul>
+                                </ul> -->
+
+                                <?php
+                                    wp_nav_menu(array(
+                                        "theme_location" => "primary_menu",
+                                        "menu_class" => "nav menu",
+                                        'container'      => false,
+                                    ));
+                                ?>
+                                
                             </nav>
                         </div>
                         <!--/ End Main Menu -->
