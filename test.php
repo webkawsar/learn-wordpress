@@ -55,6 +55,7 @@
 
 
 // class-18 | Dev-6
+// header file theke css file function.php ene kivabe load korte hobe seta dekhanu hoyese 
 
 
 // class-19 | Dev-7
