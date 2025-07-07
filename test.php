@@ -82,5 +82,11 @@
 // )
 
 
+// class-22
+// posts er details page e kivabe jete hoy and kivabe details page connect korte hoy
+// page er details page create korte hoy
+
+
+
 
 ?>
