@@ -87,6 +87,10 @@
 // page er details page create korte hoy
 
 
+// class-23
+// hierarchy somporke ektu porashuna korte hobe
+// 
+
 
 
 ?>

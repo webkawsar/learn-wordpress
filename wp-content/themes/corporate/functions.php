@@ -94,4 +94,36 @@ function my_add_menu_icon($title, $item, $args, $depth) {
 }
 add_filter('nav_menu_item_title', 'my_add_menu_icon', 10, 4);
 
+
+
+if(!function_exists('custom_post')) {
+    function custom_post() {
+        register_post_type("team", array(
+            "labels" => array(
+                "name" => __("BD Team", "myTranslateId"),
+                "singular_name" => __("team", "myTranslateId"),
+            ),
+            "public" => true,
+            "has_archive" => true
+        ));
+
+
+        register_post_type("service", array(
+            "labels" => array(
+                "name" => __("Services", "myTranslateId"),
+                "singular_name" => __("service", "myTranslateId"),
+            ),
+            "public" => true,
+            "has_archive" => true,
+            "supports" => array("title", "editor", "thumbnail")
+        ));
+
+    }
+    
+}
+
+
+add_action("init", "custom_post")
+
+
 ?>
