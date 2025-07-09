@@ -112,6 +112,8 @@ if(!function_exists('custom_post')) {
             "labels" => array(
                 "name" => __("Services", "myTranslateId"),
                 "singular_name" => __("service", "myTranslateId"),
+                "add_new_item" => __("Add New Service", "myTranslateId"),
+                "add_new" => __("Add New", "myTranslateId"),
             ),
             "public" => true,
             "has_archive" => true,
