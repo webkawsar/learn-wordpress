@@ -89,7 +89,7 @@
 
 // class-23
 // hierarchy somporke ektu porashuna korte hobe
-// 
+// custom post type
 
 
 
