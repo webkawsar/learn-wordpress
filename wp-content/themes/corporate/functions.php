@@ -65,8 +65,9 @@ if (!function_exists('myCustomCSSAndJSS')) {
 add_action('wp_enqueue_scripts', 'myCustomCSSAndJSS');
 
 
-if(!function_exists("my_menu")) {
-    function my_menu() {
+if (!function_exists("my_menu")) {
+    function my_menu()
+    {
         register_nav_menus(array(
             "top_menu" => __("Top Menu", "myTranslateId"),
             "primary_menu" => __("Primary Menu", "myTranslateId"),
@@ -79,14 +80,16 @@ add_action('init', 'my_menu');
 
 
 // Add 'dropdown' class to sub-menu <ul>
-function my_add_dropdown_class($classes) {
+function my_add_dropdown_class($classes)
+{
     $classes[] = 'dropdown';
     return $classes;
 }
 add_filter('nav_menu_submenu_css_class', 'my_add_dropdown_class');
 
 // Add icon to menu items with children
-function my_add_menu_icon($title, $item, $args, $depth) {
+function my_add_menu_icon($title, $item, $args, $depth)
+{
     if (in_array('menu-item-has-children', $item->classes) && $depth === 0) {
         $title .= ' <i class="icofont-rounded-down"></i>';
     }
@@ -96,15 +99,16 @@ add_filter('nav_menu_item_title', 'my_add_menu_icon', 10, 4);
 
 
 
-if(!function_exists('custom_post')) {
-    function custom_post() {
+if (!function_exists('custom_post')) {
+    function custom_post()
+    {
         register_post_type("team", array(
             "labels" => array(
                 "name" => __("BD Team", "myTranslateId"),
                 "singular_name" => __("team", "myTranslateId"),
             ),
             "public" => true,
-            "has_archive" => true
+            "has_archive" => true,
         ));
 
 
@@ -120,12 +124,47 @@ if(!function_exists('custom_post')) {
             "supports" => array("title", "editor", "thumbnail")
         ));
 
+
+        register_post_type(
+            'wporg_product',
+            array(
+                'labels' => array(
+                    'name' => __('Products', 'myTranslateId'),
+                    'singular_name' => __('Product', 'myTranslateId'),
+
+                    // এটি override করে labels['name'] এর ভ্যালু। যদি menu_name না দাও, তাহলে name (যেটা 'Products' hobe
+                    // 'menu_name'             => __( 'Post Types', 'myTranslateId' ),
+
+                    // WordPress-এর উপরের admin bar-এ, যখন তুমি "New" মেনুতে ক্লিক করো (যেখানে আছে "New Post", "New Page" ইত্যাদি), তখন তোমার কাস্টম পোস্ট টাইপের জন্য দেখাবে
+                    // 'name_admin_bar' => __('Product', 'myTranslateId'),
+
+                    // এর মানে হলো, যেখানে তোমার কাস্টম পোস্ট টাইপের সবগুলো পোস্ট একসাথে দেখা যাবে (যেমন yoursite.com/products), সেই আর্কাইভ পেজের জন্য ব্যবহৃত টেক্সট হবে "Item Archives"।
+                    // 'archives'              => __( 'Item Archives', 'myTranslateId' ),
+
+                    // 'attributes'            => __( 'Item Attributes', 'myTranslateId' ),
+                    // 'parent_item_colon'     => __( 'Parent Item:', 'myTranslateId' ),
+                    'all_items'             => __( 'All Products', 'myTranslateId' ),
+                    'add_new_item'          => __( 'নতুন আইটেম যোগ করুন', 'myTranslateId' ),
+                    'add_new'               => __( 'নতুন যোগ করুন', 'myTranslateId' ),
+
+
+
+                    'not_found' => __('Not found in Products', 'myTranslateId'),
+                    'not_found_in_trash' => __('Not found in Trash', 'myTranslateId'),
+                ),
+                'public' => true,
+                'has_archive' => true,
+                'rewrite' => array('slug' => 'products'), // my custom slug
+            )
+        );
+
     }
-    
+
 }
 
 
 add_action("init", "custom_post")
 
 
-?>
+
+    ?>
