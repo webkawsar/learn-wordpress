@@ -143,20 +143,24 @@ if (!function_exists('custom_post')) {
 
                     // 'attributes'            => __( 'Item Attributes', 'myTranslateId' ),
                     // 'parent_item_colon'     => __( 'Parent Item:', 'myTranslateId' ),
-                    'all_items'             => __( 'All Products', 'myTranslateId' ),
-                    'add_new_item'          => __( 'নতুন আইটেম যোগ করুন', 'myTranslateId' ),
-                    'add_new'               => __( 'নতুন যোগ করুন', 'myTranslateId' ),
+                    'all_items' => __('All Products', 'myTranslateId'),
+                    'add_new_item' => __('Add Product', 'myTranslateId'),
+                    // 'add_new'               => __( 'নতুন যোগ করুন', 'myTranslateId' ),
+                    // 'new_item'              => __( 'New Item in UI', 'myTranslateId' ),
 
-
-
+                    // edit page er heading
+                    'edit_item' => __('Edit Product', 'myTranslateId'),
+                    'search_items' => __('Search Product', 'myTranslateId'),
                     'not_found' => __('Not found in Products', 'myTranslateId'),
                     'not_found_in_trash' => __('Not found in Trash', 'myTranslateId'),
                 ),
                 'public' => true,
                 'has_archive' => true,
                 'rewrite' => array('slug' => 'products'), // my custom slug
+                "supports" => array("title", "editor", "thumbnail"),
             )
         );
+
 
     }
 
