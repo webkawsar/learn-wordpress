@@ -20,6 +20,7 @@ if (!function_exists('employee_custom_post')) {
                 'has_archive' => true,
                 'rewrite' => array('slug' => 'employees'), // my custom slug
                 "supports" => array("title", "editor", "thumbnail"),
+                // 'taxonomies' => array("")
             )
         );
 
