@@ -167,8 +167,9 @@ if (!function_exists('custom_post')) {
 }
 
 
-add_action("init", "custom_post")
+add_action("init", "custom_post");
 
 
+require_once get_theme_file_path("inc/add_employee.php");
 
     ?>
