@@ -173,4 +173,31 @@ add_action("init", "custom_post");
 require_once get_theme_file_path("inc/add_employee.php");
 require_once get_theme_file_path("inc/employee_cat.php");
 
-    ?>
+
+
+if(!function_exists("my_custom_meta_box")) {
+
+    
+
+    function my_custom_meta_box() {
+
+        function metabox_callback_function() {
+            ?>
+
+            <label for="phone_number">Enter phone number</label>
+            <input type="text" name="phone_number" id="phone_number">
+
+            <?php
+        }
+
+
+        add_meta_box("phone_number", "Enter phone number", "metabox_callback_function", "employee");
+    }
+}
+
+add_action( 'add_meta_boxes', 'my_custom_meta_box' );
+
+
+    
+    
+?>
