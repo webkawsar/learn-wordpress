@@ -98,6 +98,11 @@
 // custom posts type er sathe kivabe taxonomy add korte hoy eta dekhanu hoyeche
 
 
+// class-25
+// metabox 
+// cmb2 er use
+
+
 
 
 
