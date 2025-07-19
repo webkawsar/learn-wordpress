@@ -12,7 +12,7 @@
         <div class="row">
             <?php
             $query = new WP_Query(array(
-                "post_type" => "page",
+                "post_type" => "wporg_product",
             ));
 
             if ($query->have_posts()):
@@ -31,7 +31,10 @@
                             <div class="news-body">
                                 <div class="news-content">
                                     <div class="date"><?php the_time("d F, Y"); ?></div>
-                                    <h2><a href="blog-single.html"><?php the_title(); ?></a></h2>
+                                    <h2 style="display: flex; justify-content: space-between">
+                                        <a href="blog-single.html"><?php the_title(); ?></a> 
+                                        <?php echo get_post_meta( get_the_ID(), 'price', single: true ); ?>
+                                    </h2>
                                     <p class="text"><?php the_content(); ?></p>
                                     <a href="<?php the_permalink(); ?>">Read More</a>
                                 </div>

@@ -158,9 +158,9 @@ function yourprefix_register_demo_metabox() {
 	) );
 
 	$cmb_demo->add_field( array(
-		'name' => esc_html__( 'Test Text Small', 'cmb2' ),
-		'desc' => esc_html__( 'field description (optional)', 'cmb2' ),
-		'id'   => 'yourprefix_demo_textsmall',
+		'name' => esc_html__( 'Price', 'cmb2' ),
+		'desc' => esc_html__( '', 'cmb2' ),
+		'id'   => 'price',
 		'type' => 'text_small',
 		// 'repeatable' => true,
 		// 'column' => array(
