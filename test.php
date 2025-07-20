@@ -108,6 +108,8 @@
 // cmb2 er group filed value kivabe show korate hoy
 
 
+// class-27
+// shortcode dekhanu hoyese
 
 
 
