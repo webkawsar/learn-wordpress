@@ -105,7 +105,7 @@
 
 // class-26
 // cmb2 er custom metadata show korate hoy
-// 
+// cmb2 er group filed value kivabe show korate hoy
 
 
 

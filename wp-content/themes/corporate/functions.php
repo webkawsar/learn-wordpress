@@ -193,7 +193,17 @@ if(!function_exists("my_custom_meta_box")) {
 
 add_action( 'add_meta_boxes', 'my_custom_meta_box' );
 
+if(!function_exists('product_add')) {
+    function short_code_callback() {
+        return "This is desktop product details from shortCode";
+    }
 
+    function product_add() {
+        add_shortcode('product_details', 'short_code_callback');
+    }
+}
+
+add_action("init", 'product_add')
     
     
 ?>
