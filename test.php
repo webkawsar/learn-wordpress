@@ -115,7 +115,8 @@
 // class-28 
 // OOP -> property, method, setValue by function, get value by function
 
-
+// class-29
+// constructor, destructor, access modifiers, inheritance
 
 
 
