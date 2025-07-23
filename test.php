@@ -112,6 +112,9 @@
 // shortcode dekhanu hoyese
 
 
+// class-28 
+// OOP -> property, method, setValue by function, get value by function
+
 
 
 
