@@ -1,5 +1,7 @@
 <?php
 
+// Wordpress Learning Index
+
 // wordpress theme handbook
 
  // function 2 dhoroner
@@ -117,6 +119,17 @@
 
 // class-29
 // constructor, destructor, access modifiers, inheritance
+
+
+// class-30 
+// constant, static property, static method, abstract, interface
+
+
+// class-31
+
+
+
+
 
 
 
