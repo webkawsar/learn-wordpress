@@ -235,7 +235,10 @@ if(!function_exists('product_add')) {
     }
 }
 
-add_action("init", 'product_add')
+add_action("init", 'product_add');
     
-    
+
+
+
+
 ?>

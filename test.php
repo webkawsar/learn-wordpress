@@ -126,7 +126,7 @@
 
 
 // class-31
-
+// emp plugin er madhe custom post type create kora hoyese
 
 
 
