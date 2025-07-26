@@ -2,8 +2,20 @@
 
 
 if (!function_exists('emp_list')) {
-    function emp_list_callback()
+    function emp_list_callback($atts = [], $content = null, $tag = '')
     {
+
+        $modified_atts = array_change_key_case((array) $atts, CASE_LOWER);
+
+        $wporg_atts = shortcode_atts(
+            array(
+                'title' => 'kawsar.com',
+                'class' => 'default_class'
+            ),
+            $modified_atts,
+            $tag
+        );
+
         // return "This is desktop product details from shortCode";
         ob_start();
         ?>
@@ -27,7 +39,7 @@ if (!function_exists('emp_list')) {
             }
         </style>
 
-        <h2>EMP Table</h2>
+        <h2 class="<?php echo $wporg_atts['class']; ?>"><?php echo $wporg_atts['title']; ?></h2>
 
         <table>
             <tr>
