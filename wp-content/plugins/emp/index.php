@@ -31,3 +31,28 @@ if (!function_exists('emp_custom_post')) {
 }
 
 add_action("init", "emp_custom_post");
+
+
+
+if (!function_exists('emp_add_custom_box')) {
+    function emp_metabox_html_func()
+    {
+        ?>
+        <label for="phone_number">Phone Number</label> 
+        <input type="text" name="phone_number" id="phone_number">
+        <?php
+    }
+
+    function emp_add_custom_box()
+    {
+
+        add_meta_box(
+            'phone_number',                 // Unique ID
+            'Others Information',      // Box title
+            'emp_metabox_html_func',  // Content callback, must be of type callable
+        );
+    }
+}
+
+
+add_action('add_meta_boxes', 'emp_add_custom_box');

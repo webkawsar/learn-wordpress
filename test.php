@@ -126,7 +126,21 @@
 
 
 // class-31
-// emp plugin er madhe custom post type create kora hoyese
+// emp plugin er madhe custom post type create kora hoyese and shortcode diye plugin theke data show koranu hoyese
+
+// class-32 
+// emp plugin er function e shortcode theke kivabe attribute pass kore custome style, title add kora jay seta dekanu hoyese
+
+// class-33
+// custom meta box add kora, save kora, show kora dekhanu hoyese
+
+
+// class-34
+
+
+
+
+
 
 
 
