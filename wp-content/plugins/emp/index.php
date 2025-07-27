@@ -35,11 +35,13 @@ add_action("init", "emp_custom_post");
 
 
 if (!function_exists('emp_add_custom_box')) {
-    function emp_metabox_html_func()
+    function emp_metabox_html_func($post)
     {
+        $value = get_post_meta($post->ID, 'get_phone_number', true);
+
         ?>
-        <label for="phone_number">Phone Number</label> 
-        <input type="text" name="phone_number" id="phone_number">
+        <label for="phone_number">Phone Number</label>
+        <input type="text" name="phone_number" id="phone_number" value="<?php echo $value; ?>">
         <?php
     }
 
@@ -50,9 +52,25 @@ if (!function_exists('emp_add_custom_box')) {
             'phone_number',                 // Unique ID
             'Others Information',      // Box title
             'emp_metabox_html_func',  // Content callback, must be of type callable
+
         );
     }
+
+    function emp_save_phone_number($post_id)
+    {
+        if (array_key_exists('phone_number', $_POST)) {
+            update_post_meta(
+                $post_id,
+                'get_phone_number',
+                $_POST['phone_number']
+            );
+        }
+    }
+    add_action('save_post', 'emp_save_phone_number');
+
 }
 
 
 add_action('add_meta_boxes', 'emp_add_custom_box');
+
+
