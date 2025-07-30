@@ -176,9 +176,11 @@ require_once get_theme_file_path("inc/cmb2/init.php");
 require_once get_theme_file_path("inc/cmb2/custom_metaboxes.php");
 
 
-if(!function_exists("my_custom_meta_box")) {
-    function my_custom_meta_box() {
-        function metabox_callback_function() {
+if (!function_exists("my_custom_meta_box")) {
+    function my_custom_meta_box()
+    {
+        function metabox_callback_function()
+        {
             ?>
 
             <label for="phone_number">Enter phone number</label>
@@ -191,37 +193,61 @@ if(!function_exists("my_custom_meta_box")) {
     }
 }
 
-add_action( 'add_meta_boxes', 'my_custom_meta_box' );
+add_action('add_meta_boxes', 'my_custom_meta_box');
 
-if(!function_exists('product_add')) {
-    function short_code_callback() {
+if (!function_exists('product_add')) {
+    function short_code_callback()
+    {
         // return "This is desktop product details from shortCode";
 
         ob_start();
         ?>
 
         <style>
-        .label {
-        color: white;
-        padding: 8px;
-        font-family: Arial;
-        }
-        .success {background-color: #04AA6D;} /* Green */
-        .info {background-color: #2196F3;} /* Blue */
-        .warning {background-color: #ff9800;} /* Orange */
-        .danger {background-color: #f44336;} /* Red */ 
-        .other {background-color: #e7e7e7; color: black;} /* Gray */ 
+            .label {
+                color: white;
+                padding: 8px;
+                font-family: Arial;
+            }
+
+            .success {
+                background-color: #04AA6D;
+            }
+
+            /* Green */
+            .info {
+                background-color: #2196F3;
+            }
+
+            /* Blue */
+            .warning {
+                background-color: #ff9800;
+            }
+
+            /* Orange */
+            .danger {
+                background-color: #f44336;
+            }
+
+            /* Red */
+            .other {
+                background-color: #e7e7e7;
+                color: black;
+            }
+
+            /* Gray */
         </style>
         </head>
+
         <body>
 
-        <h1>Labels</h1>
+            <h1>Labels</h1>
 
-        <span class="label success">Success</span>
-        <span class="label info">Info</span>
-        <span class="label warning">Warning</span>
-        <span class="label danger">Danger</span>
-        <span class="label other">Other</span>
+            <span class="label success">Success</span>
+            <span class="label info">Info</span>
+            <span class="label warning">Warning</span>
+            <span class="label danger">Danger</span>
+            <span class="label other">Other</span>
 
         </body>
 
@@ -230,14 +256,67 @@ if(!function_exists('product_add')) {
         return ob_get_clean();
     }
 
-    function product_add() {
+    function product_add()
+    {
         add_shortcode('product_details', 'short_code_callback');
     }
 }
 
 add_action("init", 'product_add');
-    
 
+
+
+// Settings API
+function custom_settings_init()
+{
+    // register a new setting for "reading" page
+    register_setting('reading', 'custom_phone_number');
+
+    // register a new section in the "reading" page
+    add_settings_section(
+        'custom_settings_section',
+        'Homepage Information',
+        'custom_homepage_section_callback',
+        'reading'
+    );
+
+    // register a new field in the "custom_phone_number" section, inside the "reading" page
+    add_settings_field(
+        'custom_phone_number',
+        'Enter Phone Number',
+        'custom_phone_number_callback',
+        'reading',
+        'custom_settings_section'
+    );
+}
+
+/**
+ * register custom_settings_init to the admin_init action hook
+ */
+add_action('admin_init', 'custom_settings_init');
+
+
+/**
+ * Settings API
+ * callback functions
+ */
+
+// section content cb
+function custom_homepage_section_callback()
+{
+    echo '<h5>Homepage All Information.</h5>';
+}
+
+// field content cb
+function custom_phone_number_callback()
+{
+    // get the value of the setting we've registered with register_setting()
+    $setting = get_option('custom_phone_number');
+    // output the field
+    ?>
+    <input type="text" name="custom_phone_number" value="<?php echo isset($setting) ? esc_attr($setting) : ''; ?>">
+    <?php
+}
 
 
 

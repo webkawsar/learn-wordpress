@@ -17,7 +17,7 @@
                 <div class="col-lg-6 col-md-7 col-12">
                     <!-- Top Contact -->
                     <ul class="top-contact">
-                        <li><i class="fa fa-phone"></i>+880 1234 56789</li>
+                        <li><i class="fa fa-phone"></i> <?php echo get_option('custom_phone_number'); ?> </li>
                         <li><i class="fa fa-envelope"></i><a href="mailto:support@yourmail.com">support@yourmail.com</a>
                         </li>
                     </ul>
