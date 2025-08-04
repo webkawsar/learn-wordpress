@@ -337,6 +337,10 @@ function custom_email_callback()
     <?php
 }
 
+// codestar framework
+require_once get_theme_file_path() .'/inc/codestar/codestar-framework.php';
+require_once get_theme_file_path() .'/inc/codestar/samples/admin-options.php';
+
 
 
 ?>
