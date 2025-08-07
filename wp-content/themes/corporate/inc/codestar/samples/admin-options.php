@@ -11,7 +11,7 @@ $prefix = '_prefix_my_options';
 // Create options
 //
 CSF::createOptions($prefix, array(
-  'menu_title' => 'Theme Option',
+  'menu_title' => 'Code Star Option',
   'menu_slug' => 'theme-option',
 ));
 
@@ -26,16 +26,16 @@ CSF::createSection($prefix, array(
     //
     // A text field
     //
-    array(
-      'id' => 'opt-text',
-      'type' => 'text',
-      'title' => 'Text',
-    )
+    // array(
+    //   'id' => 'opt-text',
+    //   'type' => 'text',
+    //   'title' => 'Text',
+    // )
   )
 ));
 
 //
-// Basic Fields
+// Footer Section
 //
 CSF::createSection($prefix, array(
   'id' => 'basic_fields',
@@ -50,7 +50,6 @@ CSF::createSection($prefix, array(
   'parent' => 'basic_fields',
   'title' => 'Copyright',
   'icon' => 'far fa-square',
-  'description' => 'Visit documentation for more details on this field: <a href="http://codestarframework.com/documentation/#/fields?id=text" target="_blank">Field: text</a>',
   'fields' => array(
 
     array(
