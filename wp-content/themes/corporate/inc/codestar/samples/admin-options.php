@@ -44,7 +44,7 @@ CSF::createSection($prefix, array(
 ));
 
 //
-// Field: text
+// Field: Footer Section text
 //
 CSF::createSection($prefix, array(
   'parent' => 'basic_fields',
@@ -61,4 +61,36 @@ CSF::createSection($prefix, array(
   )
 ));
 
+// Home Page Section: Fun Facts
+CSF::createSection($prefix, array(
+  'id' => 'fun_facts',
+  'title' => 'Homepage Section',
+  'icon' => 'fas fa-plus-circle',
+));
 
+//
+// Field: Fun Facts repeater field
+//
+CSF::createSection($prefix, array(
+  'parent' => 'fun_facts',
+  'title' => 'Fun Facts',
+  'fields' => array(
+    array(
+      'id' => 'fun_facts_count',
+      'type' => 'repeater',
+      'fields' => array(
+        array(
+          'id' => 'fun_count',
+          'type' => 'text',
+          'title' => 'Fun Fact',
+        ),
+      ),
+      'default' => array(
+        array(
+          'fun_count' => 'Fun fact Name',
+        )
+      ),
+    ),
+
+  )
+));
