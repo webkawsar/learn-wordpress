@@ -9,6 +9,18 @@ if (!function_exists("callbackFunction")) {
         // translate language
         load_theme_textdomain("myTranslateId", get_template_directory() . "/languages");
 
+        // register sidebar
+        register_sidebar(
+            array(
+                'id' => 'primary',
+                'name' => __('Primary Sidebar Test'),
+                'description' => __('A short description of the sidebar.'),
+                'before_widget' => '<div id="%1$s" class="widget %2$s">',
+                'after_widget' => '</div>',
+                'before_title' => '<h3 class="widget-title">',
+                'after_title' => '</h3>',
+            )
+        );
     }
 }
 
@@ -323,7 +335,8 @@ function custom_phone_number_callback()
     $setting = get_option('custom_phone_number');
     // output the field
     ?>
-    <input type="text" name="custom_phone_number" value="<?php echo isset($setting) ? esc_attr($setting) : ''; ?>" placeholder="Enter support phone number">
+    <input type="text" name="custom_phone_number" value="<?php echo isset($setting) ? esc_attr($setting) : ''; ?>"
+        placeholder="Enter support phone number">
     <?php
 }
 
@@ -333,13 +346,14 @@ function custom_email_callback()
     $setting = get_option('custom_email');
     // output the field
     ?>
-    <input type="text" name="custom_email" value="<?php echo isset($setting) ? esc_attr($setting) : ''; ?>" placeholder="Enter support email address">
+    <input type="text" name="custom_email" value="<?php echo isset($setting) ? esc_attr($setting) : ''; ?>"
+        placeholder="Enter support email address">
     <?php
 }
 
 // codestar framework
-require_once get_theme_file_path() .'/inc/codestar/codestar-framework.php';
-require_once get_theme_file_path() .'/inc/codestar/samples/admin-options.php';
+require_once get_theme_file_path() . '/inc/codestar/codestar-framework.php';
+require_once get_theme_file_path() . '/inc/codestar/samples/admin-options.php';
 
 
 

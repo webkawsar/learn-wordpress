@@ -1,6 +1,9 @@
 <div id="fun-facts" class="fun-facts section overlay">
     <div class="container">
         <div class="row">
+            <?php dynamic_sidebar( 'primary' ); ?>
+        </div>
+        <div class="row">
             <div class="col-lg-3 col-md-6 col-12">
                 <!-- Start Single Fun -->
                 <div class="single-fun">
