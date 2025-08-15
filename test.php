@@ -152,6 +152,13 @@
 // class-38
 // elementor compatible theme development dekhanu hoyeche
 // pagination 
+// testing, deployment
+// query monitor plugin
+
+
+
+// class-39
+
 
 
 
