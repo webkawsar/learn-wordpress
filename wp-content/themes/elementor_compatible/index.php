@@ -1,12 +1,13 @@
 <?php get_header(); ?>
-<div id="primary" class="content-area">
-    <main id="main" class="site-main">
-        <?php
-        while (have_posts()):
-            the_post();
-            the_content(); // Elementor hooks into this
+
+<main id="site-content" role="main">
+    <?php
+    if ( have_posts() ) :
+        while ( have_posts() ) : the_post();
+            the_content();
         endwhile;
-        ?>
-    </main>
-</div>
+    endif;
+    ?>
+</main>
+
 <?php get_footer(); ?>
