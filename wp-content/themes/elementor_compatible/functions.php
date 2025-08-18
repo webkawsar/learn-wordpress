@@ -20,11 +20,6 @@ function mytheme_setup() {
     add_theme_support( 'align-wide' );
     add_theme_support( 'responsive-embeds' );
 
-    // Menus
-    register_nav_menus( [
-        'menu-1' => __( 'Primary Menu', 'mytheme' ),
-        'menu-2' => __( 'Footer Menu', 'mytheme' ),
-    ] );
 }
 add_action( 'after_setup_theme', 'mytheme_setup' );
 
