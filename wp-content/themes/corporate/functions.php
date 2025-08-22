@@ -1,5 +1,20 @@
 <?php
 
+define( 'HELLO_ELEMENTOR_VERSION', '3.4.4' );
+define( 'EHP_THEME_SLUG', 'hello-elementor' );
+
+define( 'HELLO_THEME_PATH', get_template_directory() );
+define( 'HELLO_THEME_URL', get_template_directory_uri() );
+define( 'HELLO_THEME_ASSETS_PATH', HELLO_THEME_PATH . '/assets/' );
+define( 'HELLO_THEME_ASSETS_URL', HELLO_THEME_URL . '/assets/' );
+define( 'HELLO_THEME_SCRIPTS_PATH', HELLO_THEME_ASSETS_PATH . 'js/' );
+define( 'HELLO_THEME_SCRIPTS_URL', HELLO_THEME_ASSETS_URL . 'js/' );
+define( 'HELLO_THEME_STYLE_PATH', HELLO_THEME_ASSETS_PATH . 'css/' );
+define( 'HELLO_THEME_STYLE_URL', HELLO_THEME_ASSETS_URL . 'css/' );
+define( 'HELLO_THEME_IMAGES_PATH', HELLO_THEME_ASSETS_PATH . 'images/' );
+define( 'HELLO_THEME_IMAGES_URL', HELLO_THEME_ASSETS_URL . 'images/' );
+
+
 if (!function_exists("callbackFunction")) {
     function callbackFunction()
     {
@@ -31,10 +46,51 @@ if (!function_exists("callbackFunction")) {
 add_action("after_setup_theme", "callbackFunction");
 
 
+if ( ! function_exists( 'hello_elementor_display_header_footer' ) ) {
+	/**
+	 * Check whether to display header footer.
+	 *
+	 * @return bool
+	 */
+	function hello_elementor_display_header_footer() {
+		$hello_elementor_header_footer = true;
+
+		return apply_filters( 'hello_elementor_header_footer', $hello_elementor_header_footer );
+	}
+}
 
 if (!function_exists('myCustomCSSAndJSS')) {
     function myCustomCSSAndJSS()
     {
+
+        if (apply_filters('hello_elementor_enqueue_style', true)) {
+            wp_enqueue_style(
+                'hello-elementor',
+                HELLO_THEME_STYLE_URL . 'reset.css',
+                [],
+                HELLO_ELEMENTOR_VERSION
+            );
+        }
+
+        if (apply_filters('hello_elementor_enqueue_theme_style', true)) {
+            wp_enqueue_style(
+                'hello-elementor-theme-style',
+                HELLO_THEME_STYLE_URL . 'theme.css',
+                [],
+                HELLO_ELEMENTOR_VERSION
+            );
+        }
+
+        if (hello_elementor_display_header_footer()) {
+            wp_enqueue_style(
+                'hello-elementor-header-footer',
+                HELLO_THEME_STYLE_URL . 'header-footer.css',
+                [],
+                HELLO_ELEMENTOR_VERSION
+            );
+        }
+
+
         // Google Fonts
         wp_enqueue_style(
             'google_fonts',
@@ -76,9 +132,47 @@ if (!function_exists('myCustomCSSAndJSS')) {
         wp_enqueue_style('responsive', get_template_directory_uri() . "/assets/css/responsive.css");
 
     }
+
 }
 
 add_action('wp_enqueue_scripts', 'myCustomCSSAndJSS');
+
+// if ( ! function_exists( 'hello_elementor_scripts_styles' ) ) {
+// 	/**
+// 	 * Theme Scripts & Styles.
+// 	 *
+// 	 * @return void
+// 	 */
+// 	function hello_elementor_scripts_styles() {
+// 		if ( apply_filters( 'hello_elementor_enqueue_style', true ) ) {
+// 			wp_enqueue_style(
+// 				'hello-elementor',
+// 				HELLO_THEME_STYLE_URL . 'reset.css',
+// 				[],
+// 				HELLO_ELEMENTOR_VERSION
+// 			);
+// 		}
+
+// 		if ( apply_filters( 'hello_elementor_enqueue_theme_style', true ) ) {
+// 			wp_enqueue_style(
+// 				'hello-elementor-theme-style',
+// 				HELLO_THEME_STYLE_URL . 'theme.css',
+// 				[],
+// 				HELLO_ELEMENTOR_VERSION
+// 			);
+// 		}
+
+// 		if ( hello_elementor_display_header_footer() ) {
+// 			wp_enqueue_style(
+// 				'hello-elementor-header-footer',
+// 				HELLO_THEME_STYLE_URL . 'header-footer.css',
+// 				[],
+// 				HELLO_ELEMENTOR_VERSION
+// 			);
+// 		}
+// 	}
+// }
+// add_action( 'wp_enqueue_scripts', 'hello_elementor_scripts_styles' );
 
 
 if (!function_exists("my_menu")) {

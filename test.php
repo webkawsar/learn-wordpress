@@ -162,7 +162,12 @@
 
 
 // class-40
-// 
+// kivabe wordpress theme e license key diye activate korte hoy
+// alada API server create kore sekhane kichu license key rakhte hoy
+// then keu wordpress er Settings licence key submit korar option kora lage
+// then license key sybmit korle seta Api server e request jabe and  
+// check kore licensejodi true hoy valid response dibe or invalid response dibe
+
 
 
 
